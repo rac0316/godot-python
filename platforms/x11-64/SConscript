@@ -15,8 +15,8 @@ env["DIST_SITE_PACKAGES"] = Dir(f"{env['DIST_PLATFORM']}/lib/python3.7/site-pack
 ### Build config for pythonscript ###
 
 
-env.AppendUnique(CFLAGS=["-m64"])
-env.AppendUnique(LINKFLAGS=["-m64"])
+env.AppendUnique(CFLAGS=["-march=armv8-a"])
+env.AppendUnique(LINKFLAGS=["-march=armv8-a"])
 # Cannot use CPPPATH&LIBPATH here given headers are within `cpython_build` target,
 # so Scons consider the headers are a missing target
 env.AppendUnique(CFLAGS=[f"-I{cpython_build.abspath}/include/python3.7m/"])
